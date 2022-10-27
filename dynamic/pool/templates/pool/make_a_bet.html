@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Place a bet!{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Place a bet!</h1>
+        <p>Enter your bet below</p>
+    </header>
+
+    <section>
+        <form method="post" action="">{% csrf_token %}
+            <div class="row gtr-uniform">
+                <div class="col-6 col-12-xsmall">
+                    {{ form.person_name }}
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    {{ form.the_match}}
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    {{ form.team_1_points.label}}<br/>
+                    {{ form.team_1_points}}
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    {{ form.team_2_points.label}}<br/>
+                    {{ form.team_2_points}}
+                </div>
+                <div class="col-6 col-12-small">
+                    {{ form.amount.label}}<br/>
+                    {{ form.amount}}
+                    {% if form.amount.errors %}{% for err in form.amount.errors %}{{ err }}{% endfor %}{% endif %}
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="Place the bet" class="primary" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </section>
+
+</div>
+{% endblock %}

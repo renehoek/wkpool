@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% load money %}
+
+{% block title %}List of bets '{{  match.team_1 }} - {{ match.team_2 }}' {% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>List of bets '{{  match.team_1 }} - {{ match.team_2 }}'</h1>
+    </header>
+
+<section>
+    <div class="table-wrapper">
+        <table class="alt">
+            <thead>
+                <tr>
+                    <th>Date placed</th>
+                    <th>Name</th>
+                    <th>Team 1 - Team 2</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bet in bets %}
+                <tr>
+                    <td>{{ bet.added | date:"d b Y H:i"}}</td>
+                    <td>{{ bet.person_name}}</td>
+                    <td>{{ bet.team_1_points }} - {{ bet.team_2_points }}</td>
+                    <td>{{ bet.amount | euro}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        {% if amount_sum is not None %}
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td>{{ amount_sum | euro }}</td>
+            </tr>
+        </tfoot>
+        {% endif %}
+        </table>
+    </div>
+</section>
+</div>
+{% endblock %}
