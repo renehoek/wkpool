@@ -21,6 +21,9 @@
       </list>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2GfuRvPVOZOZRgu9RVhrJaGXy9e" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,7 +37,12 @@
     "last_opened_file_path": "/Users/renevanhoek/workspace/Experiments/www_wkpool_nl/dynamic/pool/templates/pool",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.django.DjangoModulesConfigurable"
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">

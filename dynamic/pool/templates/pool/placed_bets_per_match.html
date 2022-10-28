@@ -19,6 +19,7 @@
                     <th>Name</th>
                     <th>Team 1 - Team 2</th>
                     <th>Amount</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                     <td>{{ bet.person_name}}</td>
                     <td>{{ bet.team_1_points }} - {{ bet.team_2_points }}</td>
                     <td>{{ bet.amount | euro}}</td>
+                    <td><a href="{% url 'pool:update-bet' bet.pk%}">Update</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -36,6 +38,7 @@
             <tr>
                 <td colspan="3"></td>
                 <td>{{ amount_sum | euro }}</td>
+                <td></td>
             </tr>
         </tfoot>
         {% endif %}

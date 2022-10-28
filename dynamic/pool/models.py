@@ -1,4 +1,9 @@
+from decimal import Decimal
+
+from django.db.models.aggregates import Sum
+
 from django.db import models
+
 
 class Team(models.Model):
     """
@@ -17,7 +22,6 @@ class Match(models.Model):
     """
     The match between two teams.
     """
-
     STADION_CHOICES = (('AL_BAYT', 'Al Bayt'), ('KHALIFA_INT', 'Khalifa Int'),
                        ('AHMAD_BIN_ALI', 'Ahmad Bin Ali'), ('AL_THUMAMA', 'Al Thumama'))
 
@@ -34,10 +38,24 @@ class Match(models.Model):
         return "{dt} {t1} - {t2}".format(dt=self.plays_at, t1=self.team_1, t2=self.team_2)
 
 
+class BetManager(models.Manager):
+    """
+    Interface for the database queries.
+    """
+
+    def sum_of_bets(self) -> Decimal:
+        """
+        Get the Sum of the bets
+        :return: Sum
+        """
+        return self.aggregate(Sum('amount'))['amount__sum']
+
+
 class Bet(models.Model):
     """
     A placed bet for a match
     """
+    objects = BetManager()
     added = models.DateTimeField(auto_now_add=True)
     person_name = models.CharField(blank=False, max_length=255)
     the_match = models.ForeignKey(Match, on_delete=models.PROTECT)

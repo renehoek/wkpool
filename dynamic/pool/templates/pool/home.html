@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Welcome at WKPool{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Welcome at WKPool</h1>
+        <p>This is a simple web application to explain some Django concepts.<br/>
+        For the WK 2022 people can place and change their bets.<br/>
+        </p>
+    </header>
+
+    <section>
+        <h2>Place & View the bets</h2>
+        <div class="row">
+            <div class="col-6 col-12-medium">
+                <ul>
+                    <li><a href="{% url 'pool:make-bet' %}">Place a bet</a></li>
+                    <li><a href="{% url 'pool:bets-overview' %}">List the bets</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <h2>ERD & Object diagram</h2>
+    <section class="tiles">
+        <article class="style1">
+            <span class="image">
+                <img style="width: 353px; height: 353px;" src="{% static "website/images/ERD_diagram.png" %}" alt="" />
+            </span>
+            <a target="_blank" href="{% static "website/images/ERD_diagram.png" %}">
+                <h2>ERD</h2>
+                <div class="content">
+                    <p>The Entity Relation Diagram.</p>
+                </div>
+            </a>
+        </article>
+        <article class="style2">
+            <span class="image">
+                <img style="width: 353px; height: 353px;" src="{% static "website/images/UML_objects_methods.png" %}" alt="" />
+            </span>
+            <a target="_blank" href="{% static "website/images/UML_objects_methods.png" %}">
+                <h2>UML Object diagram</h2>
+                <div class="content">
+                    <p>The objects in the webapplication.</p>
+                </div>
+            </a>
+        </article>
+    </section>
+</div>
+{% endblock %}
