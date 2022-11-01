@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sheet 3 - WKPool applicatie{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>WKPool applicatie & ERD diagram</h1>
+        <section>
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                   Mensen kunnen geld inzetten op de uitkomst van een voetbal wedstrijd.
+                </div>
+            </div>
+        </section>
+        <section class="tiles">
+        <article class="style1">
+            <span class="image">
+                <img style="width: 353px; height: 353px;" src="{% static "website/images/ERD_diagram.png" %}" alt="" />
+            </span>
+            <a target="_blank" href="{% static "website/images/ERD_diagram.png" %}">
+                <h2>ERD</h2>
+                <div class="content">
+                    <p>The Entity Relation Diagram.</p>
+                </div>
+            </a>
+        </article>
+        </section>
+        <a href="{% url "pool:sheet-2" %}">&lt;</a>&nbsp;<a href="{% url "pool:sheet-4" %}">&gt;</a>
+    </header>
+</div>
+{% endblock %}

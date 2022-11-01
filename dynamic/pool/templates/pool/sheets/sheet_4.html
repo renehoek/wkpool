@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Sheet 4 - ORM{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Object Relational Mapper</h1>
+        <section>
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                   <ul>
+                        <li>Data classes gedefinieerd als Python classes</li>
+                        <li>Framework verzorgt mapping en syncing</li>
+                        <li>Geen SQL-statements meer onderhouden</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="{% url "pool:sheet-3" %}">&lt;</a>&nbsp;<a href="{% url "pool:sheet-5" %}">&gt;</a>
+        </section>
+    </header>
+</div>
+{% endblock %}

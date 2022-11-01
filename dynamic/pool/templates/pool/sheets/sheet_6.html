@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Sheet 6 - Maak en save een model{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Django models - Aanmaken en opslaan</h1>
+        <section>
+            <pre>
+                <code>
+import datetime
+from django.utils import timezone
+from pool.models import Match, Team
+
+# Create and store two teams
+my_team_red = Team(name="Team red")
+my_team_red.save()
+
+my_team_blue = Team(name="Team blue")
+my_team_blue.save()
+
+# Create a match, link the two teams and store it.
+my_match = Match()
+my_match.plays_at = timezone.make_aware(datetime.datetime(2022, 12, 18))
+my_match.team_1 = my_team_red
+my_match.team_2 = my_team_blue
+my_match.stadion = "AL_THUMAMA"
+my_match.save()
+
+matches = Match.objects.filter(stadion="AL_THUMAMA")
+print(matches)
+
+                </code>
+                 <code>
+&lt;QuerySet [&lt;Match: 2022-12-17 23:00:00+00:00 Team red - Team blue&gt;]&gt;
+                 </code>
+            </pre>
+            <p>Tijdverschil komt doordat datums worden opgeslagen in UTC.</p>
+            <a href="{% url "pool:sheet-5" %}">&lt;</a>&nbsp;<a href="{% url "pool:sheet-7" %}">&gt;</a>
+        </section>
+    </header>
+</div>
+{% endblock %}

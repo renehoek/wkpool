@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Sheet 7 - Aggegratie{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Django models - Aggegratie</h1>
+        <section>
+            <pre>
+                <code>
+import datetime
+from decimal import Decimal
+from django.utils import timezone
+from pool.models import Match, Team, Bet
+
+# Create and store two teams
+my_team_red = Team(name="Team red")
+my_team_red.save()
+
+my_team_blue = Team(name="Team blue")
+my_team_blue.save()
+
+#Create a match
+my_match = Match(plays_at=timezone.make_aware(datetime.datetime(2022, 12, 18)),
+                 team_1=my_team_red, team_2=my_team_blue, stadion="AL_THUMAMA")
+my_match.save()
+
+#Create two bets
+bet_1 = Bet(person_name="Rene", the_match=my_match, team_1_points=2, team_2_points=3, amount=Decimal(7))
+bet_1.save()
+bet_2 = Bet(person_name="Rene", the_match=my_match, team_1_points=2, team_2_points=3, amount=Decimal(15))
+bet_2.save()
+
+print("Bet first: {d}".format(d=my_match.bet_set.sum_of_bets()))
+
+#Increase a bet
+bet_2.amount = 20
+bet_2.save()
+
+print("Bet second: {d}".format(d=my_match.bet_set.sum_of_bets()))
+                </code>
+                 <code>
+Bet first: 22
+Bet second: 27
+                 </code>
+            </pre>
+            <a href="{% url "pool:sheet-6" %}">&lt;</a>&nbsp;<a href="{% url "pool:sheet-8" %}">&gt;</a>
+        </section>
+    </header>
+</div>
+{% endblock %}

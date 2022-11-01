@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Sheet 2 - Agenda{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Agenda</h1>
+        <section>
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                    <ul>
+                        <li>Demo WKPool applicatie</li>
+                        <li>ERD diagram</li>
+                        <li>ORM in Django</li>
+                        <li>Vragen</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="{% url "pool:sheet-1" %}">&lt;</a>&nbsp;<a href="{% url "pool:sheet-3" %}">&gt;</a>
+        </section>
+    </header>
+</div>
+{% endblock %}

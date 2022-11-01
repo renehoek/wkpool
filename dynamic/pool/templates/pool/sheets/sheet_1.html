@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Sheet 1 - Web Application in Django{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Web Applicatie in Django</h1>
+        <section>
+            <h2>Wat is Django</h2>
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                    <ul>
+                        <li>High level framework in Python</li>
+                        <li>Uitgangspunten</li>
+                        <ul>
+                            <li>Loose coupling</li>
+                            <li>Don't repeat yourself</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <h2>Mijn aannames over het publiek</h2>
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                    <ul>
+                        <li>Kennis van HTTP</li>
+                        <li>Kennis van Python en OOP</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="{% url "pool:sheet-2" %}">&gt;</a>
+        </section>
+    </header>
+</div>
+{% endblock %}

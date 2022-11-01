@@ -1,3 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Sheet 5 - Django models{% endblock %}
+
+{% block content %}
+<div class="inner">
+    <header>
+        <h1>Django models (code voorbeeld)</h1>
+        <section>
+            <pre>
+                <code>
 from decimal import Decimal
 from django.db.models.aggregates import Sum
 from django.db import models
@@ -66,3 +77,11 @@ class Bet(models.Model):
     def __str__(self):
         return "{p} - {m}: {t1}/{t2}".format(p=self.person_name, m=self.the_match,
                                              t1=self.team_1_points, t2=self.team_2_points)
+
+                </code>
+            </pre>
+            <a href="{% url "pool:sheet-4" %}">&lt;</a>&nbsp;<a href="{% url "pool:sheet-6" %}">&gt;</a>
+        </section>
+    </header>
+</div>
+{% endblock %}
